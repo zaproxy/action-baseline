@@ -3,7 +3,7 @@
 A GitHub Action for running the OWASP ZAP [Baseline scan](https://github.com/zaproxy/zaproxy/wiki/ZAP-Baseline-Scan). 
 
 The ZAP baseline action scans a target URL for vulnerabilities and maintains an issue in GitHub repository for the
-identified alerts. Read the following ZAP blog for additional information.
+identified alerts.
 
 
 ## Inputs
