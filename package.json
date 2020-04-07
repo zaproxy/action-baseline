@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/javascript-action.git"
+    "url": "git+https://github.com/zaproxy/action-baseline.git"
   },
   "keywords": [
     "GitHub",
@@ -20,9 +20,8 @@
   ],
   "author": "ZAP Team",
   "bugs": {
-    "url": "https://github.com/actions/javascript-action/issues"
+    "url": "https://github.com/zaproxy/action-baseline/issues"
   },
-  "homepage": "https://github.com/actions/javascript-action#readme",
   "dependencies": {
     "@actions/artifact": "^0.2.0",
     "@actions/core": "^1.1.1",

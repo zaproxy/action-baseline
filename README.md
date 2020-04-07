@@ -38,7 +38,7 @@ the rules file inside the relevant repository. The following shows a sample rule
 ```
 steps:
   - name: ZAP Scan
-    uses: zap/action-baseline
+    uses: zaproxy/action-baseline
     with:
       token: ${{ secrets.GIT_TOKEN }}
       target: 'https://www.zaproxy.org/'
@@ -59,7 +59,7 @@ jobs:
         with:
           ref: master
       - name: ZAP Scan
-        uses: zap/action-baseline
+        uses: zaproxy/action-baseline
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
