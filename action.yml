@@ -1,5 +1,8 @@
-name: 'ZAP Baseline Scan'
-description: 'Scans the web application with ZAP Baseline Scan'
+name: 'OWASP ZAP Baseline Scan'
+description: 'Scans the web application with the OWASP ZAP Baseline Scan'
+branding:
+  icon: 'zap'
+  color: 'blue'
 inputs:
   token:
     description: 'GitHub Token to create issues in the repository'
