@@ -17,6 +17,9 @@ inputs:
     description: 'The Docker file to be executed'
     required: true
     default: 'owasp/zap2docker-stable'
+  cmdOptions:
+    description: 'Additional baseline command line options'
+    required: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
