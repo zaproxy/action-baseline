@@ -69,7 +69,7 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://www.example.com'
           rules_file_name: '.zap/rules.tsv'
-          cmdOptions: '- a'
+          cmdOptions: '-a'
 ```
 
 ## Additional Information
