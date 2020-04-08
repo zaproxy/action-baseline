@@ -48998,7 +48998,7 @@ let actionHelper = {
                         msg = msg + TAB + `${BULLET} **${alert.name}** [${alert.pluginid}] total: ${alert.instances.length}:  ${NXT_LINE}`
 
                         for (let i = 0; i < alert['instances'].length; i++) {
-                            if (i > instanceCount) {
+                            if (i >= instanceCount) {
                                 msg = msg + TAB + TAB + `${BULLET} .. ${NXT_LINE}`;
                                 break
                             }
@@ -49017,7 +49017,7 @@ let actionHelper = {
                         msg = msg + TAB + `${BULLET} **${alert.name}** [${alert.pluginid}] total: ${alert.instances.length}:  ${NXT_LINE}`
 
                         for (let i = 0; i < alert['instances'].length; i++) {
-                            if (i > instanceCount) {
+                            if (i >= instanceCount) {
                                 msg = msg + TAB + TAB + `${BULLET} .. ${NXT_LINE}`;
                                 break
                             }
@@ -49036,7 +49036,7 @@ let actionHelper = {
                         msg = msg + TAB + `${BULLET} **${alert.name}** [${alert.pluginid}] total: ${alert.instances.length}:  ${NXT_LINE}`
 
                         for (let i = 0; i < alert['instances'].length; i++) {
-                            if (i > instanceCount) {
+                            if (i >= instanceCount) {
                                 msg = msg + TAB + TAB + `${BULLET} .. ${NXT_LINE}`;
                                 break
                             }
