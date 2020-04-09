@@ -3,8 +3,8 @@
 A GitHub Action for running the OWASP ZAP [Baseline scan](https://github.com/zaproxy/zaproxy/wiki/ZAP-Baseline-Scan). 
 
 The ZAP baseline action scans a target URL for vulnerabilities and maintains an issue in GitHub repository for the
-identified alerts.
-
+identified alerts. Read the following [blog post](https://www.zaproxy.org/blog/2020-04-09-automate-security-testing-with-zap-and-github-actions) 
+for additional information.
 
 ## Inputs
 
@@ -78,13 +78,13 @@ The following [issue](https://github.com/zaproxy/zaproxy-website/issues/93) show
 [https://www.zaproxy.org/](https://www.zaproxy.org/) website and notifies the users via opening an issue in the ZAP website repository. 
 The issue will be created by the GitHub Actions bot and will list the alerts as issue comments.
 
-[![zap-issue](./images/zap-issue-1.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issue-597219582)
+[![issue open](./images/zap-issue-1.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issue-597219582)
 
 To demonstrate the workflow of the action; we are ignoring the alerts as they are not relevant, but this has the same effect as fixing them.
 Therefore during the second scan we are ignoring few alerts via ZAP rules and the action bot updates the issue with the newly ignored/resolved alerts. 
-[![zap-issue](./images/zap-issue-2.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issuecomment-611490632)
+[![comment with issues resolved](./images/zap-issue-2.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issuecomment-611490632)
 
 
-During the last scan we are ignoring all the alerts, thus resulting in finding zero vulnerabilities. Based on the scan results 
+During the last scan we are ignoring all the alerts, thus resulting in finding zero alerts. Based on the scan results 
 the actions bot will close the ongoing open issue.
-[![zap-issue](./images/zap-issue-3.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issuecomment-611496321)
+[![issue closed](./images/zap-issue-3.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issuecomment-611496321)
