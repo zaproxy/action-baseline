@@ -32,6 +32,10 @@ the rules file inside the relevant repository. The following shows a sample rule
 10015	IGNORE	(Incomplete or No Cache-control and Pragma HTTP Header Set)
 ``` 
 
+### `cmdOptions`
+
+**Optional** Additional command lines options for the baseline script
+
 ## Example usage
 
 ** Basic **
@@ -65,6 +69,7 @@ jobs:
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://www.example.com'
           rules_file_name: '.zap/rules.tsv'
+          cmdOptions: '-a'
 ```
 
 ## Additional Information

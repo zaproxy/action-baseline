@@ -15,6 +15,7 @@ let repo;
 // Default file names
 let jsonReportName = 'report_json.json';
 let mdReportName = 'report_md.md';
+let htmlReportName = 'report_html.html';
 
 async function run() {
 
@@ -26,6 +27,8 @@ async function run() {
         let docker_name = core.getInput('docker_name');
         let target = core.getInput('target');
         let rulesFileLocation = core.getInput('rules_file_name');
+        let cmdOptions = core.getInput('cmd_options');
+        let include_urls = core.getInput('include_urls');
 
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);
@@ -43,7 +46,7 @@ async function run() {
         }
 
         let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
-            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}`);
+            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
 
         if (plugins.length !== 0) {
             command = command + ` -c ${rulesFileLocation}`
@@ -54,7 +57,7 @@ async function run() {
         } catch (err) {
             core.setFailed('The ZAP Baseline scan has failed, starting to analyze the alerts. err: ' + err.toString());
         }
-        await processReport(token, workspace, plugins, currentRunnerID);
+        await processReport(token, workspace, plugins, currentRunnerID, include_urls);
     } catch (error) {
         core.setFailed(error.message);
     }
@@ -217,5 +220,5 @@ async function processReport(token, workSpace, plugins, currentRunnerID) {
         }
     }
 
-    actionHelper.uploadArtifacts(workSpace, `${mdReportName}`, `${jsonReportName}`);
+    actionHelper.uploadArtifacts(workSpace, mdReportName, jsonReportName, htmlReportName);
 }
