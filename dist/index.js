@@ -3785,7 +3785,7 @@ async function run() {
         } catch (err) {
             core.setFailed('The ZAP Baseline scan has failed, starting to analyze the alerts. err: ' + err.toString());
         }
-        await processReport(token, workspace, plugins, currentRunnerID, include_urls);
+        await processReport(token, workspace, plugins, currentRunnerID);
     } catch (error) {
         core.setFailed(error.message);
     }
