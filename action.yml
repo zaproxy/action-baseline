@@ -17,7 +17,7 @@ inputs:
     description: 'The Docker file to be executed'
     required: true
     default: 'owasp/zap2docker-stable'
-  cmdOptions:
+  cmd_options:
     description: 'Additional command line options'
     required: false
 runs:

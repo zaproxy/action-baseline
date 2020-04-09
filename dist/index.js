@@ -3757,7 +3757,6 @@ async function run() {
         let target = core.getInput('target');
         let rulesFileLocation = core.getInput('rules_file_name');
         let cmdOptions = core.getInput('cmd_options');
-        let include_urls = core.getInput('include_urls');
 
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);

@@ -32,7 +32,7 @@ the rules file inside the relevant repository. The following shows a sample rule
 10015	IGNORE	(Incomplete or No Cache-control and Pragma HTTP Header Set)
 ``` 
 
-### `cmdOptions`
+### `cmd_options`
 
 **Optional** Additional command lines options for the baseline script
 
@@ -42,7 +42,7 @@ the rules file inside the relevant repository. The following shows a sample rule
 ```
 steps:
   - name: ZAP Scan
-    uses: zaproxy/action-baseline
+    uses: zaproxy/action-baseline@v0.2.0
     with:
       token: ${{ secrets.GIT_TOKEN }}
       target: 'https://www.zaproxy.org/'
@@ -63,13 +63,13 @@ jobs:
         with:
           ref: master
       - name: ZAP Scan
-        uses: zaproxy/action-baseline
+        uses: zaproxy/action-baseline@v0.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
           target: 'https://www.example.com'
           rules_file_name: '.zap/rules.tsv'
-          cmdOptions: '-a'
+          cmd_options: '-a'
 ```
 
 ## Additional Information
