@@ -36,6 +36,11 @@ the rules file inside the relevant repository. The following shows a sample rule
 
 **Optional** Additional command lines options for the baseline script
 
+### `issue_title`
+
+**Optional** The title for the GitHub issue that is created.
+
+
 ## Example usage
 
 ** Basic **
