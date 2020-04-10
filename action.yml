@@ -20,6 +20,10 @@ inputs:
   cmd_options:
     description: 'Additional command line options'
     required: false
+  issue_title:
+    description: 'The title that for the GitHub issue that is created'
+    required: false
+    default: 'ZAP Scan Baseline Report'
 runs:
   using: 'node12'
   main: 'dist/index.js'
