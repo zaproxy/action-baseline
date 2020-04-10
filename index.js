@@ -80,8 +80,9 @@ async function processReport(token, workSpace, plugins, currentRunnerID) {
         return
     }
 
+    let issueTitle = core.getInput('issue_title');
     let issues = await octokit.search.issuesAndPullRequests({
-        q: `is:issue+:state:open+repo:${owner}/${repo}+ZAP+Scan+Baseline+Report`,
+        q: `is:issue+:state:open+repo:${owner}/${repo}+` + encodeURI(issueTitle),
         sort: 'updated'
     });
 
@@ -189,7 +190,7 @@ async function processReport(token, workSpace, plugins, currentRunnerID) {
         const newIssue = await octokit.issues.create({
             owner: owner,
             repo: repo,
-            title: 'ZAP Scan Baseline Report',
+            title: issueTitle,
             body: msg
         });
         console.log(`Process completed successfully and a new issue #${newIssue.data.number} has been created for the ZAP Scan.`);
