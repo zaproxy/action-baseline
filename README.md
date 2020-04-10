@@ -40,7 +40,6 @@ the rules file inside the relevant repository. The following shows a sample rule
 
 **Optional** The title for the GitHub issue that is created.
 
-
 ## Example usage
 
 ** Basic **
