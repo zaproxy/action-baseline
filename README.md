@@ -48,7 +48,7 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 ```
 steps:
   - name: ZAP Scan
-    uses: zaproxy/action-baseline@v0.3.0
+    uses: zaproxy/action-baseline@v0.2.0
     with:
       token: ${{ secrets.GIT_TOKEN }}
       target: 'https://www.zaproxy.org'
@@ -69,7 +69,7 @@ jobs:
         with:
           ref: master
       - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.3.0
+        uses: zaproxy/action-baseline@v0.2.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
