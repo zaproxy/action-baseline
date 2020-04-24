@@ -1,5 +1,5 @@
 {
-  "name": "action-full-scan",
+  "name": "action-baseline-scan",
   "version": "1.0.0",
   "description": "ZAP baseline scan action",
   "main": "index.js",
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zaproxy/action-full-scan.git"
+    "url": "git+https://github.com/zaproxy/action-baseline.git"
   },
   "keywords": [
     "GitHub",
@@ -20,7 +20,7 @@
   ],
   "author": "ZAP Team",
   "bugs": {
-    "url": "https://github.com/zaproxy/action-full-scan/issues"
+    "url": "https://github.com/zaproxy/action-baseline/issues"
   },
   "dependencies": {
     "@actions/artifact": "^0.2.0",
