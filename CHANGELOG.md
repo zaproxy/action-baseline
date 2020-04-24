@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 - Allow to configure the title of the issue raised, using the parameter `issue_title`. [#10](https://github.com/zaproxy/action-baseline/issues/10)
 
+### Changed
+- Moved the common code to [actions-common-scans repository](https://github.com/zaproxy/actions-common)
+
 ## [0.2.0] - 2020-04-09
 ### Added
 - Allow to pass command line arguments to the baseline script, using the parameter `cmd_options`. [#4](https://github.com/zaproxy/action-baseline/issues/4)

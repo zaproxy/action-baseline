@@ -21,7 +21,7 @@ inputs:
     description: 'Additional command line options'
     required: false
   issue_title:
-    description: 'The title for the GitHub issue that is created'
+    description: 'The title for the GitHub issue to be created'
     required: false
     default: 'ZAP Scan Baseline Report'
 runs:

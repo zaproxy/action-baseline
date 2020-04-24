@@ -11,6 +11,7 @@ for additional information.
 ### `Github token`
 
 **Required** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
+You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GIT_TOKEN`).
 
 ### `target`
 
@@ -26,6 +27,7 @@ configure the parameter to use the weekly builds.
 
 **Optional** You can also specify a relative path to the rules file to ignore any alerts from the ZAP scan. Make sure to create
 the rules file inside the relevant repository. The following shows a sample rules file configuration.
+Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP rules to the scan action.
 
 ```tsv
 10011	IGNORE	(Cookie Without Secure Flag)
@@ -38,7 +40,7 @@ the rules file inside the relevant repository. The following shows a sample rule
 
 ### `issue_title`
 
-**Optional** The title for the GitHub issue that is created.
+**Optional** The title for the GitHub issue to be created
 
 ## Example usage
 
@@ -49,7 +51,7 @@ steps:
     uses: zaproxy/action-baseline@v0.2.0
     with:
       token: ${{ secrets.GIT_TOKEN }}
-      target: 'https://www.zaproxy.org/'
+      target: 'https://www.zaproxy.org'
 ```
 
 ** Advanced **
@@ -71,12 +73,12 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'owasp/zap2docker-stable'
-          target: 'https://www.example.com'
+          target: 'https://www.zaproxy.org'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
 ```
 
-## Additional Information
+## Issue Description
 
 The following [issue](https://github.com/zaproxy/zaproxy-website/issues/93) shows how the GitHub Baseline Action scans the 
 [https://www.zaproxy.org/](https://www.zaproxy.org/) website and notifies the users via opening an issue in the ZAP website repository. 
