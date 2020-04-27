@@ -6,7 +6,8 @@ branding:
 inputs:
   token:
     description: 'GitHub Token to create issues in the repository'
-    required: true
+    required: false
+    default: ${{ github.token }}
   target:
     description: 'Target URL'
     required: true
