@@ -8,10 +8,10 @@ for additional information.
 
 ## Inputs
 
-### `Github token`
+### `token`
 
 **Required** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
-You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GIT_TOKEN`).
+You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`).
 
 ### `target`
 
@@ -50,7 +50,7 @@ steps:
   - name: ZAP Scan
     uses: zaproxy/action-baseline@v0.2.0
     with:
-      token: ${{ secrets.GIT_TOKEN }}
+      token: ${{ secrets.GITHUB_TOKEN }}
       target: 'https://www.zaproxy.org'
 ```
 
