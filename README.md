@@ -50,7 +50,6 @@ steps:
   - name: ZAP Scan
     uses: zaproxy/action-baseline@v0.2.0
     with:
-      token: ${{ secrets.GITHUB_TOKEN }}
       target: 'https://www.zaproxy.org'
 ```
 
