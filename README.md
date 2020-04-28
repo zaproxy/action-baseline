@@ -94,3 +94,16 @@ Therefore during the second scan we are ignoring few alerts via ZAP rules and th
 During the last scan we are ignoring all the alerts, thus resulting in finding zero alerts. Based on the scan results 
 the actions bot will close the ongoing open issue.
 [![issue closed](./images/zap-issue-3.png)](https://github.com/zaproxy/zaproxy-website/issues/93#issuecomment-611496321)
+
+## Localised Alert Details
+
+ZAP is internationalised and alert information is available in many languages.
+
+You can change the language used by this action by changing the locale via the `cmd_options` e.g.: `-z "-config view.locale=fr_FR"`
+
+This is currently only available with the `owasp/zap2docker-weekly` or `owasp/zap2docker-live` Docker images.
+
+See [https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang) for the full set of locales currently supported.
+
+You can help improve ZAP translations via [https://crowdin.com/project/owasp-zap](https://crowdin.com/project/owasp-zap). 
+
