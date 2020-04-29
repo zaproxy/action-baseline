@@ -8,11 +8,6 @@ for additional information.
 
 ## Inputs
 
-### `token`
-
-**Required** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
-You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`).
-
 ### `target`
 
 **Required** The URL of the web application to be scanned. This can be either a publicly available web application or a locally
@@ -41,6 +36,11 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 ### `issue_title`
 
 **Optional** The title for the GitHub issue to be created
+
+### `token`
+
+**Optional** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
+You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`).
 
 ## Example usage
 
