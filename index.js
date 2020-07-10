@@ -22,6 +22,10 @@ async function run() {
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
 
+        if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
+            console.log('WARNING: \'fail_action\' action input should be either \'true\' or \'false\'');
+        }
+
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);
 
@@ -30,6 +34,7 @@ async function run() {
             plugins = await common.helper.processLineByLine(`${workspace}/${rulesFileLocation}`);
         }
 
+        await exec.exec(`docker pull ${docker_name} -q`);
         let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
             `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
 
@@ -40,12 +45,19 @@ async function run() {
         try {
             await exec.exec(command);
         } catch (err) {
-            if (failAction == 'true') {
-                core.setFailed('Scan action failed as ZAP has identified alerts or failed to scan the target, starting to analyze the results. err: ' + err.toString());
+            if (err.toString().includes('exit code 3')) {
+                core.setFailed('failed to scan the target: ' + err.toString());
+                return
+            }
+
+            if ((err.toString().includes('exit code 2') || err.toString().includes('exit code 1'))
+                    && String(failAction).toLowerCase() === 'true') {
+                console.log(`[info] By default ZAP Docker container will fail if it identifies any alerts during the scan!`);
+                core.setFailed('Scan action failed as ZAP has identified alerts or failed to scan the target, ' +
+                    'starting to analyze the results. ' + err.toString());
             }else {
                 console.log('Scanning process completed, starting to analyze the results!')
             }
-
         }
         await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
     } catch (error) {

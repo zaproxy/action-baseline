@@ -26,7 +26,7 @@ inputs:
     required: false
     default: 'ZAP Scan Baseline Report'
   fail_action:
-    description: 'Fail or pass the action based on identified alerts'
+    description: 'The action status will be set to fail if ZAP identifies any alerts during the baseline scan'
     required: false
     default: false
 runs:
