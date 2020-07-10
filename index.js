@@ -40,7 +40,7 @@ async function run() {
         try {
             await exec.exec(command);
         } catch (err) {
-            if (failAction === true) {
+            if (failAction == 'true') {
                 core.setFailed('Scan action failed as ZAP has identified alerts or failed to scan the target, starting to analyze the results. err: ' + err.toString());
             }else {
                 console.log('Scanning process completed, starting to analyze the results!')
