@@ -20,6 +20,7 @@ async function run() {
         let rulesFileLocation = core.getInput('rules_file_name');
         let cmdOptions = core.getInput('cmd_options');
         let issueTitle = core.getInput('issue_title');
+        let failAction = core.getInput('fail_action');
 
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);
@@ -39,7 +40,12 @@ async function run() {
         try {
             await exec.exec(command);
         } catch (err) {
-            core.setFailed('The ZAP Baseline scan has failed, starting to analyze the alerts. err: ' + err.toString());
+            if (failAction === true) {
+                core.setFailed('Scan action failed as ZAP has identified alerts or failed to scan the target, starting to analyze the results. err: ' + err.toString());
+            }else {
+                console.log('Scanning process completed, starting to analyze the results!')
+            }
+
         }
         await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
     } catch (error) {

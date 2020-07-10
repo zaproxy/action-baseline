@@ -25,6 +25,10 @@ inputs:
     description: 'The title for the GitHub issue to be created'
     required: false
     default: 'ZAP Scan Baseline Report'
+  fail_action:
+    description: 'Fail or pass the action based on identified alerts'
+    required: false
+    default: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
