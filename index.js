@@ -23,7 +23,7 @@ async function run() {
         let failAction = core.getInput('fail_action');
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
-            console.log('WARNING: \'fail_action\' action input should be either \'true\' or \'false\'');
+            console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
         }
 
         console.log('starting the program');
@@ -53,8 +53,7 @@ async function run() {
             if ((err.toString().includes('exit code 2') || err.toString().includes('exit code 1'))
                     && String(failAction).toLowerCase() === 'true') {
                 console.log(`[info] By default ZAP Docker container will fail if it identifies any alerts during the scan!`);
-                core.setFailed('Scan action failed as ZAP has identified alerts or failed to scan the target, ' +
-                    'starting to analyze the results. ' + err.toString());
+                core.setFailed('Scan action failed as ZAP has identified alerts, starting to analyze the results. ' + err.toString());
             }else {
                 console.log('Scanning process completed, starting to analyze the results!')
             }
