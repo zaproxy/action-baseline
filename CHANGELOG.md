@@ -4,6 +4,12 @@ All notable changes to this GitHub action will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+- Option to fail the status of the GitHub action if any alerts are found during the scan process. [#31](https://github.com/zaproxy/action-baseline/issues/31)
+
+### Changed
+- Modified the action status to pass by default (previously fail by default) [#31](https://github.com/zaproxy/action-baseline/issues/31)
+- Reduced docker logs [#20](https://github.com/zaproxy/action-baseline/issues/20)
 
 ## [0.3.0] - 2020-04-28
 ### Added
