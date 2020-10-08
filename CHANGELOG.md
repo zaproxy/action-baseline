@@ -3,7 +3,7 @@ All notable changes to this GitHub action will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.4.0] - 2020-10-08
 ### Added
 - Option to fail the status of the GitHub action if any alerts are found during the scan process. [#31](https://github.com/zaproxy/action-baseline/issues/31)
 
@@ -29,7 +29,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 First release to Marketplace.
 
-[Unreleased]: https://github.com/zaproxy/action-baseline/compare/v0.3.0...HEAD
+[0.4.0]: https://github.com/zaproxy/action-baseline/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/zaproxy/action-baseline/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/zaproxy/action-baseline/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/zaproxy/action-baseline/compare/64ea8c12229f3351fcc50f5834b2c8db25042817...v0.1.0
