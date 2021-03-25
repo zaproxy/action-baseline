@@ -21,6 +21,7 @@ async function run() {
         let cmdOptions = core.getInput('cmd_options');
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
+        let processReport = core.getInput('process_report');
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
             console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
@@ -58,7 +59,12 @@ async function run() {
                 console.log('Scanning process completed, starting to analyze the results!')
             }
         }
-        await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
+        if (String(processReport).toLowerCase() === 'true') {
+            await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName);
+        } else {        
+            console.log('[WARNING]: \'process_report\' is set to \'false\' (or an invalid value), issues wont be created');
+        }
+
     } catch (error) {
         core.setFailed(error.message);
     }
