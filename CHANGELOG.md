@@ -5,6 +5,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
 
+- Option `process_report` : Default is `true` and setting it to `false` will prevent creating issues in the GitHub repository
+
 ## [0.4.0] - 2020-10-08
 ### Added
 - Option to fail the status of the GitHub action if any alerts are found during the scan process. [#31](https://github.com/zaproxy/action-baseline/issues/31)
