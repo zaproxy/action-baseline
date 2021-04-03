@@ -40,7 +40,7 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 ### `token`
 
 **Optional** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
-You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`). If you dont want ZAP to create GitHub issues, set the token to an empty string.
+You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`). If you don’t want ZAP to create GitHub issues, set the token to an empty string.
 
 ### `fail_action`
 
@@ -110,4 +110,3 @@ This is currently only available with the `owasp/zap2docker-weekly` or `owasp/za
 See [https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang) for the full set of locales currently supported.
 
 You can help improve ZAP translations via [https://crowdin.com/project/owasp-zap](https://crowdin.com/project/owasp-zap). 
-
