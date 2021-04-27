@@ -21,21 +21,30 @@ async function run() {
         let cmdOptions = core.getInput('cmd_options');
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
+        let forceRoot = core.getInput('force_root');
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
             console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
         }
 
+        if (!(String(forceRoot).toLowerCase() === 'true' || String(forceRoot).toLowerCase() === 'false')) {
+            console.log('[WARNING]: \'force_root\' action input should be either \'true\' or \'false\'');
+        }
+
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);
 
+        let force_root_param = '';
+        if (String(forceRoot).toLowerCase() === 'true') {
+            force_root_param = '--user root'
+        }
         let plugins = [];
         if (rulesFileLocation) {
             plugins = await common.helper.processLineByLine(`${workspace}/${rulesFileLocation}`);
         }
 
         await exec.exec(`docker pull ${docker_name} -q`);
-        let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
+        let command = (`docker run ${force_root_param} -v ${workspace}:/zap/wrk/:rw --network="host" ` +
             `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
 
         if (plugins.length !== 0) {
