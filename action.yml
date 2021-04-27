@@ -33,6 +33,18 @@ inputs:
     description: 'The action will file the report to the GitHub issue using the issue_title input'
     required: false
     default: true
+  force_root:
+    description: 'Whether or not force root user in the container'
+    required: false
+    default: false
+  zap_options:
+    description: 'zap options, a string like "key=value key2=value2", it will be prepended with flag -z'
+    required: false
+    default: ''
+  reports_dir:
+    description: 'Base dir to store reports, default to local dir'
+    required: false
+    default: './'
 runs:
   using: 'node12'
   main: 'dist/index.js'

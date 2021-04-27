@@ -19,10 +19,13 @@ async function run() {
         let target = core.getInput('target');
         let rulesFileLocation = core.getInput('rules_file_name');
         let cmdOptions = core.getInput('cmd_options');
+        let zapOptions = core.getInput('zap_options');
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
         let allowIssueWriting = core.getInput('allow_issue_writing');
         let createIssue = true;
+        let forceRoot = core.getInput('force_root');
+        let reportsDir = core.getInput('reports_dir');
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
             console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
@@ -31,18 +34,29 @@ async function run() {
         if (String(allowIssueWriting).toLowerCase() === 'false') {
             createIssue = false;
         }
+        if (!(String(forceRoot).toLowerCase() === 'true' || String(forceRoot).toLowerCase() === 'false')) {
+            console.log('[WARNING]: \'force_root\' action input should be either \'true\' or \'false\'');
+        }
 
         console.log('starting the program');
         console.log('github run id :' + currentRunnerID);
 
+        let reports_dir = './';
+        if (reportsDir != '') {
+            reports_dir = reportsDir + '/'
+        }
+        let force_root_param = '';
+        if (String(forceRoot).toLowerCase() === 'true') {
+            force_root_param = '--user root'
+        }
         let plugins = [];
         if (rulesFileLocation) {
             plugins = await common.helper.processLineByLine(`${workspace}/${rulesFileLocation}`);
         }
 
         await exec.exec(`docker pull ${docker_name} -q`);
-        let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
-            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
+        let command = (`docker run ${force_root_param} -v ${workspace}:/zap/wrk/:rw --network="host" ` +
+                       `-t ${docker_name} zap-baseline.py -t ${target} -J ${reports_dir}${jsonReportName} -w ${reports_dir}${mdReportName}  -r ${reports_dir}${htmlReportName} ${cmdOptions} -z "${zapOptions}"`);
 
         if (plugins.length !== 0) {
             command = command + ` -c ${rulesFileLocation}`
