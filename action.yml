@@ -32,7 +32,7 @@ inputs:
   force_root:
     description: 'Whether or not force root user in the container'
     required: false
-    default: true
+    default: false
 runs:
   using: 'node12'
   main: 'dist/index.js'
