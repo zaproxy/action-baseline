@@ -49,7 +49,7 @@ if it identifies any alerts. Set this option to `true** if you want to fail the 
 
 ### `force_root`
 
-**Optional** By default the container will be run using root user. In case a non-root user has to be used (e.g. when using zap with authentication from ictu/zap2docker-weekly), set this parameter to *false*. (note that setting this to false will force to set an accessible reports base dir**
+**Optional** By default the container will be run using root user. In case a non-root user has to be used (e.g. when using zap with authentication from ictu/zap2docker-weekly), set this parameter to *false*. (note that setting this to false will force to set an accessible reports base dir)
 
 ### `zap_options`
 
