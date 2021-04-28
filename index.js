@@ -19,6 +19,7 @@ async function run() {
         let target = core.getInput('target');
         let rulesFileLocation = core.getInput('rules_file_name');
         let cmdOptions = core.getInput('cmd_options');
+        let zapOptions = core.getInput('zap_options');
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
         let forceRoot = core.getInput('force_root');
@@ -45,7 +46,7 @@ async function run() {
 
         await exec.exec(`docker pull ${docker_name} -q`);
         let command = (`docker run ${force_root_param} -v ${workspace}:/zap/wrk/:rw --network="host" ` +
-            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
+            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions} -z "${zapOptions}"`);
 
         if (plugins.length !== 0) {
             command = command + ` -c ${rulesFileLocation}`
