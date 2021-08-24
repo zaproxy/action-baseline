@@ -22,9 +22,14 @@ async function run() {
         let issueTitle = core.getInput('issue_title');
         let failAction = core.getInput('fail_action');
         let allowIssueWriting = core.getInput('allow_issue_writing');
+        let createIssue = true;
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
             console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
+        }
+
+        if (String(allowIssueWriting).toLowerCase() === 'false') {
+            createIssue = false;
         }
 
         console.log('starting the program');
@@ -59,7 +64,7 @@ async function run() {
                 console.log('Scanning process completed, starting to analyze the results!')
             }
         }
-        await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName, allowIssueWriting);
+        await common.main.processReport(token, workspace, plugins, currentRunnerID, issueTitle, repoName, createIssue);
     } catch (error) {
         core.setFailed(error.message);
     }
