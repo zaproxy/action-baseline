@@ -33,6 +33,11 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 
 **Optional** Additional command lines options for the baseline script
 
+### `allow_issue_writing`
+
+**Optional** By default the baseline action will file the report to the GitHub issue using the `issue_title` input.
+Set this to false if you don't want the issue to be created or updated.
+
 ### `issue_title`
 
 **Optional** The title for the GitHub issue to be created
@@ -40,7 +45,7 @@ Make sure to checkout the repository (actions/checkout@v2) to provide the ZAP ru
 ### `token`
 
 **Optional** ZAP action uses the default action token provided by GitHub to create and update the issue for the baseline scan.
-You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`). If you don’t want ZAP to create GitHub issues, set the token to an empty string.
+You do not have to create a dedicated token. Make sure to use the GitHub's default action token when running the action(`secrets.GITHUB_TOKEN`).
 
 ### `fail_action`
 

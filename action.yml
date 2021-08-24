@@ -29,6 +29,10 @@ inputs:
     description: 'The action status will be set to fail if ZAP identifies any alerts during the baseline scan'
     required: false
     default: false
+  allow_issue_writing:
+    description: 'The action will file the report to the GitHub issue using the issue_title input'
+    required: false
+    default: true
 runs:
   using: 'node12'
   main: 'dist/index.js'
