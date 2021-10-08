@@ -42,7 +42,7 @@ async function run() {
 
         await exec.exec(`docker pull ${docker_name} -q`);
         let command = (`docker run --user root -v ${workspace}:/zap/wrk/:rw --network="host" ` +
-            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
+            `-t ${docker_name} zap-baseline.py --autooff -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
 
         if (plugins.length !== 0) {
             command = command + ` -c ${rulesFileLocation}`
