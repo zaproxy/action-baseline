@@ -4,8 +4,8 @@ All notable changes to this GitHub action will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [0.6.1] - 2021-10-08
-### Fixed
-- Regenerate the dist to pick the previous change.
+### Changed
+- Revert previous change (not into effect), no longer needed.
 
 ## [0.6.0] - 2021-10-08
 ### Changed
