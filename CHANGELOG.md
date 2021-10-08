@@ -3,6 +3,10 @@ All notable changes to this GitHub action will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [0.6.1] - 2021-10-08
+### Fixed
+- Regenerate the dist to pick the previous change.
+
 ## [0.6.0] - 2021-10-08
 ### Changed
 - Disabled the automation framework while we investigate a problem with it.
@@ -40,6 +44,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 First release to Marketplace.
 
+[0.6.1]: https://github.com/zaproxy/action-baseline/compare/v0.6.0...v0.6.1
 [0.6.0]: https://github.com/zaproxy/action-baseline/compare/v0.5.0...v0.6.0
 [0.5.0]: https://github.com/zaproxy/action-baseline/compare/v0.4.0...v0.5.0
 [0.4.0]: https://github.com/zaproxy/action-baseline/compare/v0.3.0...v0.4.0
