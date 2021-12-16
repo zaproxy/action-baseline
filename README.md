@@ -50,7 +50,33 @@ You do not have to create a dedicated token. Make sure to use the GitHub's defau
 ### `fail_action`
 
 **Optional** By default ZAP Docker container will fail with an [exit code](https://github.com/zaproxy/zaproxy/blob/efb404d38280dc9ecf8f88c9b0c658385861bdcf/docker/zap-baseline.py#L31), 
-if it identifies any alerts. Set this option to `true` if you want to fail the status of the GitHub Scan if ZAP identifies any alerts during the scan.  
+if it identifies any alerts. Set this option to `true** if you want to fail the status of the GitHub Scan if ZAP identifies any alerts during the scan.  
+
+### `force_root`
+
+**Optional** By default the container will be run using root user. In case a non-root user has to be used (e.g. when using zap with authentication from ictu/zap2docker-weekly), set this parameter to *false*. (note that setting this to false will force to set an accessible reports base dir)
+
+### `zap_options`
+
+**Optional** If zap options need to be passed, add the full string here. Zap options are like "key1=value1 key2=value2". This option was added because passing these zap options in cmd_options causes trouble with quotations.
+String added here will be prepended with flag *-z*.
+E.g., this string:
+
+```bash
+"key1=value1 key2=value2"
+```
+
+...will be added into the command as:
+
+```bash
+-z "key1=value1 key2=value2"
+```
+
+### `reports_dir`
+
+**Optional** Defaults to local dir (i.e. "./"). A different base path can be specified.
+If *force_root* was set to false, note that the tool won't have access to the current dir to store the reports, so a new one have to be created. Please, see the examples to find how it can be done.
+
 
 ## Example usage
 
@@ -85,6 +111,34 @@ jobs:
           target: 'https://www.zaproxy.org'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
+```
+
+** Non root user **
+
+```
+on: [push]
+
+jobs:
+  zap_scan:
+    runs-on: ubuntu-latest
+    name: Scan the webapplication
+    steps:
+      - name: Create Reports Dir
+        run: mkdir ./reports && chmod 777 ./reports
+      - name: ZAP Scan
+        uses: zaproxy/action-baseline@v0.4.1
+        with:
+          target: 'https://yourdomain.com'
+          cmd_options:  '-I -j --hook=/zap/auth_hook.py'
+          zap_options:  'auth.loginurl=https://yourdomain.com/login/ auth.username=username@yourdomain.com auth.password=yoursecretpwd auth.auto=1'
+          docker_name: ictu/zap2docker-weekly
+          force_root: false
+          reports_dir: ./reports
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+           name: Zap scanning report
+           path: ${{github.workspace}}/reports
 ```
 
 ## Issue Description
