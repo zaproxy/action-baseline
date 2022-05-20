@@ -7,6 +7,9 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Changed
 - Update dependencies.
 
+### Fixed
+- Use default zap user rather than root to allow the Ajax Spider to run.
+
 ## [0.6.1] - 2021-10-08
 ### Changed
 - Revert previous change (not into effect), no longer needed.
