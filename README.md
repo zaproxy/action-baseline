@@ -112,6 +112,6 @@ You can change the language used by this action by changing the locale via the `
 
 This is currently only available with the `owasp/zap2docker-weekly` or `owasp/zap2docker-live` Docker images.
 
-See [https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/develop/zap/src/main/dist/lang) for the full set of locales currently supported.
+See [https://github.com/zaproxy/zaproxy/tree/main/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/main/zap/src/main/dist/lang) for the full set of locales currently supported.
 
 You can help improve ZAP translations via [https://crowdin.com/project/owasp-zap](https://crowdin.com/project/owasp-zap). 
