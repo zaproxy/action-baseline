@@ -3,11 +3,6 @@ const exec = require('@actions/exec');
 const common = require('@zaproxy/actions-common-scans');
 const _ = require('lodash');
 
-// Default file names
-let jsonReportName = 'report_json.json';
-let mdReportName = 'report_md.md';
-let htmlReportName = 'report_html.html';
-
 async function run() {
 
     try {
@@ -23,6 +18,9 @@ async function run() {
         let failAction = core.getInput('fail_action');
         let allowIssueWriting = core.getInput('allow_issue_writing');
         let createIssue = true;
+        let jsonReportName = core.getInput("json_report_name");
+        let mdReportName = core.getInput("md_report_name");
+        let htmlReportName = core.getInput("html_report_name");
 
         if (!(String(failAction).toLowerCase() === 'true' || String(failAction).toLowerCase() === 'false')) {
             console.log('[WARNING]: \'fail_action\' action input should be either \'true\' or \'false\'');
