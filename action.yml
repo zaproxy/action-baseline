@@ -33,6 +33,19 @@ inputs:
     description: 'The action will file the report to the GitHub issue using the issue_title input'
     required: false
     default: true
+  json_report_name:
+    description: 'file to write the full ZAP JSON document'
+    required: false
+    default: 'report_json.json'
+  md_report_name:
+    description: 'file to write the full ZAP Wiki (Markdown) report'
+    required: false
+    default: 'report_md.md'
+  html_report_name:
+    description: 'file to write the full ZAP HTML report'
+    required: false
+    default: 'report_html.html'
+
 runs:
   using: 'node16'
   main: 'dist/index.js'
