@@ -4,6 +4,9 @@ All notable changes to this GitHub action will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Added
+ - An input (`artifact_name`) used to name the artifact that contains the ZAP reports. [#45](https://github.com/zaproxy/action-baseline/issues/45)
+
 ### Changed
 - Run action with Node 16.
 - Update dependencies.
