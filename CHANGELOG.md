@@ -3,7 +3,9 @@ All notable changes to this GitHub action will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [Unreleased]
+## [0.8.2] - 2023-07-04
+### Fixed
+- Fix an issue introduced in the previous release that prevented the use of the default GitHub authentication token to raise issues.
 
 ## [0.8.1] - 2023-07-03
 ### Fixed
@@ -65,7 +67,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 First release to Marketplace.
 
-[Unreleased]: https://github.com/zaproxy/action-baseline/compare/v0.8.1...HEAD
+[0.8.2]: https://github.com/zaproxy/action-baseline/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/zaproxy/action-baseline/compare/v0.8.0...v0.8.1
 [0.8.0]: https://github.com/zaproxy/action-baseline/compare/v0.7.0...v0.8.0
 [0.7.0]: https://github.com/zaproxy/action-baseline/compare/v0.6.1...v0.7.0
