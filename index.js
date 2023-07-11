@@ -7,6 +7,7 @@ const _ = require('lodash');
 let jsonReportName = 'report_json.json';
 let mdReportName = 'report_md.md';
 let htmlReportName = 'report_html.html';
+let xmlReportName = 'report_xml.xml';
 
 async function run() {
 
@@ -47,12 +48,12 @@ async function run() {
         }
 
         // Create the files so we can change the perms and allow the docker non root user to update them
-        await exec.exec(`touch ${jsonReportName} ${mdReportName} ${htmlReportName}`);
-        await exec.exec(`chmod a+w ${jsonReportName} ${mdReportName} ${htmlReportName}`);
+        await exec.exec(`touch ${jsonReportName} ${mdReportName} ${htmlReportName} ${xmlReportName}`);
+        await exec.exec(`chmod a+w ${jsonReportName} ${mdReportName} ${htmlReportName} ${xmlReportName}`);
 
         await exec.exec(`docker pull ${docker_name} -q`);
         let command = (`docker run -v ${workspace}:/zap/wrk/:rw --network="host" ` +
-            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName}  -r ${htmlReportName} ${cmdOptions}`);
+            `-t ${docker_name} zap-baseline.py -t ${target} -J ${jsonReportName} -w ${mdReportName} -x ${xmlReportName}  -r ${htmlReportName} ${cmdOptions}`);
 
         if (plugins.length !== 0) {
             command = command + ` -c ${rulesFileLocation}`

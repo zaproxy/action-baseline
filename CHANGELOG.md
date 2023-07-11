@@ -4,6 +4,8 @@ All notable changes to this GitHub action will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 ## [Unreleased]
+### Fixed
+- Fix an issue where XML report file is not generated which caused no XML report to be generated. [#104](https://github.com/zaproxy/action-baseline/issues/104)
 
 ## [0.8.2] - 2023-07-04
 ### Fixed
