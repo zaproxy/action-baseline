@@ -3,6 +3,8 @@ All notable changes to this GitHub action will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [Unreleased]
+
 ## [0.9.0] - 2023-08-02
 ### Changed
 - The default Docker image was changed to `ghcr.io/zaproxy/zaproxy:stable`.
@@ -71,6 +73,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
 First release to Marketplace.
 
+[Unreleased]: https://github.com/zaproxy/action-baseline/compare/v0.9.0...HEAD
 [0.9.0]: https://github.com/zaproxy/action-baseline/compare/v0.8.2...v0.9.0
 [0.8.2]: https://github.com/zaproxy/action-baseline/compare/v0.8.1...v0.8.2
 [0.8.1]: https://github.com/zaproxy/action-baseline/compare/v0.8.0...v0.8.1
