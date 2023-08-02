@@ -1,6 +1,6 @@
 # Action Baseline
 
-A GitHub Action for running the OWASP ZAP [Baseline scan](https://www.zaproxy.org/docs/docker/baseline-scan/) to find vulnerabilities in your web application. 
+A GitHub Action for running the ZAP [Baseline scan](https://www.zaproxy.org/docs/docker/baseline-scan/) to find vulnerabilities in your web application. 
  
 The ZAP baseline action scans a target URL for vulnerabilities and maintains an issue in GitHub repository for the
 identified alerts. Read the following [blog post](https://www.zaproxy.org/blog/2020-04-09-automate-security-testing-with-zap-and-github-actions) 
@@ -85,7 +85,7 @@ jobs:
         uses: zaproxy/action-baseline@v0.8.2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          docker_name: 'owasp/zap2docker-stable'
+          docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
           target: 'https://www.zaproxy.org'
           rules_file_name: '.zap/rules.tsv'
           cmd_options: '-a'
@@ -113,8 +113,6 @@ the actions bot will close the ongoing open issue.
 ZAP is internationalised and alert information is available in many languages.
 
 You can change the language used by this action by changing the locale via the `cmd_options` e.g.: `-z "-config view.locale=fr_FR"`
-
-This is currently only available with the `owasp/zap2docker-weekly` or `owasp/zap2docker-live` Docker images.
 
 See [https://github.com/zaproxy/zaproxy/tree/main/zap/src/main/dist/lang](https://github.com/zaproxy/zaproxy/tree/main/zap/src/main/dist/lang) for the full set of locales currently supported.
 
