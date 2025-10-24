@@ -71,7 +71,7 @@ will be copied into the docker container:
 ```
 steps:
   - name: ZAP Scan
-    uses: zaproxy/action-baseline@v0.14.0
+    uses: zaproxy/action-baseline@v0.15.0
     with:
       target: 'https://www.zaproxy.org'
 ```
@@ -87,11 +87,11 @@ jobs:
     name: Scan the webapplication
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           ref: master
       - name: ZAP Scan
-        uses: zaproxy/action-baseline@v0.14.0
+        uses: zaproxy/action-baseline@v0.15.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           docker_name: 'ghcr.io/zaproxy/zaproxy:stable'
